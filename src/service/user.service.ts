@@ -43,3 +43,7 @@ export async function validatePassword({email, password}: validatePassword) {
 export async function findUser(query: FilterQuery<UserDocument>) {
     return User.findOne(query).lean();
 }
+
+export async function getUserDetails(query: FilterQuery<UserDocument>) {
+    return User.findOne(query, '-password').lean();
+}
