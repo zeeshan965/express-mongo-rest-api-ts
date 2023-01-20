@@ -1,0 +1,49 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "Simple rest API to register, login, perform c.r.u.d operations using express and typescript and mongoose",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --config nodemon.json src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeeshan965/express-mongo-rest-api-ts.git"
+  },
+  "keywords": [
+    "rest-api"
+  ],
+  "author": "zeeshan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeeshan965/express-mongo-rest-api-ts/issues"
+  },
+  "homepage": "https://github.com/zeeshan965/express-mongo-rest-api-ts#readme",
+  "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/body-parser": "^1.19.2",
+    "@types/config": "^3.3.0",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.15",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/lodash": "^4.14.191",
+    "@types/mongoose": "^5.11.97",
+    "@types/nanoid": "^3.0.0",
+    "@types/node": "^18.11.18",
+    "@types/pino": "^7.0.5",
+    "bcrypt": "^5.1.0",
+    "config": "^3.3.9",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.8.4",
+    "nanoid": "^4.0.0",
+    "nodemon": "^2.0.20",
+    "pino": "^8.8.0",
+    "pino-pretty": "^9.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4",
+    "yup": "^0.32.11"
+  }
+}
