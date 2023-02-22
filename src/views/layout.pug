@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(type='text/javascript').
+            console.log ( 'rendering view from Pug' );
+    body
+        h1 Jeeny Assignment
+        #container.col
+            p.
+                Pug is a terse and simple templating language with a
+                strong focus on performance and powerful features.
+            block content
