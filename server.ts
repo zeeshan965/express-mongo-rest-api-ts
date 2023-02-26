@@ -1,6 +1,11 @@
+require('./src/global')
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 import config from "config";
 import log from "./src/logger";
-//import connect from "./db/connect";
+// import connect from "./db/connect";
+
 
 const app = require('./src/app');
 const port = config.get('port') as number;

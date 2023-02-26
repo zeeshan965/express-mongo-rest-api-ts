@@ -1,9 +1,7 @@
-import * as dotenv from 'dotenv';
 import express, {NextFunction, Request, Response} from "express";
 import HttpStatusCodes from "./constants/HttpStatusCodes";
 import {RouteError} from "./errors/RouteError";
 
-dotenv.config();
 const createError = require('http-errors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -11,7 +9,7 @@ const logger = require('morgan');
 const bodyParser = require("body-parser");
 const rateLimit = require("express-rate-limit");
 const indexRouter = require('./routes/index');
-const api = require ( "./routes/api" );
+const api = require("./routes/api");
 
 const app = express();
 
@@ -43,7 +41,7 @@ app.use(
 
 // Routes which should handle requests
 app.use('/', indexRouter);
-app.use ( "/api", api );
+app.use("/api", api);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
     res.header("Access-Control-Allow-Origin", "*");

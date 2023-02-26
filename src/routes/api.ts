@@ -1,15 +1,10 @@
-import {NextFunction, Request, Response} from "express";
+import express, {NextFunction, Request, Response} from "express";
 
-let express = require("express");
-let router = express.Router();
+const router = express.Router();
 
-// router.use('/users', require('./users'));
+//router.use('/', require('./auth'));
 // router.use('/conversations', require('./conversation'));
 // router.use('/messages', require('./message'));
-
-router.get('/', function (req: Request, res: Response, next: NextFunction) {
-    res.status(200).send({message: 'welcome!'});
-});
 
 const posts = [
     {
