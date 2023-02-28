@@ -3,6 +3,7 @@ import express, {NextFunction, Request, Response} from "express";
 const router = express.Router();
 
 router.use('/', require('./auth'));
+router.use('/tasks', require('./task'));
 // router.use('/conversations', require('./conversation'));
 // router.use('/messages', require('./message'));
 

@@ -1,6 +1,7 @@
 import express, {NextFunction, Request, Response} from "express";
 import HttpStatusCodes from "./constants/HttpStatusCodes";
 import {RouteError} from "./errors/RouteError";
+import {deserializeUser} from "./middleware";
 
 const createError = require('http-errors');
 const path = require('path');
@@ -12,6 +13,7 @@ const indexRouter = require('./routes/index');
 const api = require("./routes/api");
 
 const app = express();
+app.use(deserializeUser);
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -70,16 +72,5 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
     if (req.xhr) res.status(status).json({message: error.message})
 
 });
-
-
-// import {deserializeUser} from "./middleware";
-
-
-// app.use(deserializeUser);
-// app.use(express.json());
-// app.use(express.urlencoded({extended: false}));
-
-// Routes which should handle requests
-// app.use('/', indexRouter);
 
 module.exports = app;

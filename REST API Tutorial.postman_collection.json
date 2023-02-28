@@ -1,64 +1,160 @@
 {
 	"info": {
-		"_postman_id": "9cacb82d-0164-4fe8-8213-0a5179c313c2",
-		"name": "REST API Tutorial",
+		"_postman_id": "df661197-5c5a-431f-b86c-b9ff3861a53f",
+		"name": "Express-Mongo-TS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "9565425"
 	},
 	"item": [
 		{
-			"name": "Get User Details",
+			"name": "Welcome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "404 Not Found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/not",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"not"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "404 Not Found API",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
-						"key": "x-refresh",
-						"value": "{{refreshToken}}",
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3300/user",
-					"protocol": "http",
+					"raw": "localhost:3000/notfoundapi",
 					"host": [
 						"localhost"
 					],
-					"port": "3300",
+					"port": "3000",
 					"path": [
-						"user"
+						"notfoundapi"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Logout",
+			"name": "API Welcome",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API health check 200",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/healthCheck",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"healthCheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All method supported route",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/jack",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"jack"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API Register User",
+			"request": {
+				"method": "POST",
 				"header": [
 					{
-						"key": "x-refresh",
-						"value": "{{refreshToken}}",
-						"type": "text",
-						"disabled": true
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"zeeshanbutt223+2@gmail.com\",\n    \"password\": \"12345678\",\n    \"passwordConfirmation\": \"12345678\",\n    \"name\": \"zeeshan iqbal\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:3300/logout",
-					"protocol": "http",
+					"raw": "localhost:3000/api/register",
 					"host": [
 						"localhost"
 					],
-					"port": "3300",
+					"port": "3000",
 					"path": [
-						"logout"
+						"api",
+						"register"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Login",
+			"name": "API Login",
 			"event": [
 				{
 					"listen": "test",
@@ -80,10 +176,16 @@
 			],
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\": \"zeeshanbutt223@gmail.com\",\n    \"password\": \"12345678\"\n}",
+					"raw": "{\n    \"email\": \"zeeshanbutt223+1@gmail.com\",\n    \"password\": \"12345678\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -91,13 +193,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3300/login",
+					"raw": "http://localhost:3000/api/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3300",
+					"port": "3000",
 					"path": [
+						"api",
 						"login"
 					]
 				}
@@ -105,104 +208,58 @@
 			"response": []
 		},
 		{
-			"name": "Register User",
+			"name": "API User Details",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"email\": \"zeeshanbutt223+1@gmail.com\",\n    \"password\": \"12345678\",\n    \"passwordConfirmation\": \"12345678\",\n    \"name\": \"zeeshan iqbal\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
 						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3300/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3300",
-					"path": [
-						"register"
 					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Base Route(GET, POST,PUT,DELETE)",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
+				},
 				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"email\": \"zeeshanbutt223@gmail.com\",\n    \"password\": \"12345678\",\n    \"passwordConfirmation\": \"12345678\",\n    \"name\": \"zeeshan iqbal\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3300/api",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3300",
-					"path": [
-						"api"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Task",
-			"request": {
-				"method": "POST",
 				"header": [
 					{
 						"key": "x-refresh",
 						"value": "{{refreshToken}}",
-						"type": "text"
+						"type": "text",
+						"disabled": true
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"{{$randomProductMaterial}} {{$randomCurrencyName}}\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "http://localhost:3300/create-task",
+					"raw": "http://localhost:3000/api/user",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3300",
+					"port": "3000",
 					"path": [
-						"create-task"
+						"api",
+						"user"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get all tasks",
+			"name": "API Get tasks",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [
 					{
@@ -221,54 +278,64 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3300/list-tasks",
+					"raw": "http://localhost:3000/api/tasks",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3300",
+					"port": "3000",
 					"path": [
-						"list-tasks"
+						"api",
+						"tasks"
 					]
 				}
 			},
 			"response": []
-		}
-	],
-	"auth": {
-		"type": "bearer",
-		"bearer": [
-			{
-				"key": "token",
-				"value": "{{accessToken}}",
-				"type": "string"
-			}
-		]
-	},
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
 		},
 		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "email",
-			"value": "email"
+			"name": "API create task",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-refresh",
+						"value": "{{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{$randomProductMaterial}} {{$randomCurrencyName}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"tasks"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
