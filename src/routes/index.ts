@@ -8,7 +8,7 @@ router.get('/', function (req: Request, res: Response, next: NextFunction) {
     console.log('Cookies: ', req.cookies)
     // Cookies that have been signed
     console.log('Signed Cookies: ', req.signedCookies)
-    res.render('index', {title: 'Express'});
+    res.render('index', {title: 'Welcome'});
 });
 
 module.exports = router;

@@ -1,8 +1,5 @@
-- npm i to install node modules
-- Please visit ./config/default.ts  for configs
-- npm init
-- npm i -g npx
-- npm install -g typescript
-- npx tsc --init
-- npm i express config cors mongoose pino pino-pretty dayjs bcrypt jsonwebtoken lodash nanoid nodemon yup
-- npm i @types/body-parser @types/config @types/cors @types/express @types/node @types/pino @types/mongoose @types/bcrypt @types/jsonwebtoken @types/lodash @types/nanoid ts-node typescript
+- Visit startup-commands.txt to see other options
+- npm i --save
+- example .env file included in the repo
+- for configs ./config/default.ts
+- npm run dev to serve the project
