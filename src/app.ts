@@ -24,10 +24,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.raw({extended: true}));
-app.use(bodyParser.json({extended: true}));
-app.use(bodyParser.text({extended: true}));
+if (typeof bodyParser.urlencoded !== "undefined") app.use(bodyParser.urlencoded({extended: true}));
+if (typeof bodyParser.raw !== "undefined") app.use(bodyParser.raw({}));
+if (typeof bodyParser.json !== "undefined") app.use(bodyParser.json({}));
+if (typeof bodyParser.text !== "undefined") app.use(bodyParser.text({}));
 
 //Implement rate limiting
 app.use(
